@@ -214,6 +214,8 @@ class Database(object):
         return blocks
 
     def fetch_block(self, block_num):
+        if not block_num:
+            return None
         fetch = """
         SELECT block_num, block_id FROM blocks WHERE block_num = {}
         """.format(block_num)
